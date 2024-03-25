@@ -371,30 +371,7 @@ function dataStringDrawn() {
 	console.log("localStorage set to", dataString);
 	return dataString;
 }
-//function makeDesks() {
-//	while (desks.firstChild) {
-//		desks.removeChild(desks.firstChild);
-//	}
-//	for (var i=0;i<size;i++) {
-//		var checkbox = document.createElement("input");
-//		checkbox.type = "checkbox";
-//		var desk = document.createElement("label");
-//		var id = "cb"+(i+1);
-//		checkbox.id = id;
-//		desk.htmlFor = id;
-//		desk.classList.add("desk");
-//		desk.innerHTML = i+1;
-//		desk.addEventListener("pointerdown", function (ev) {
-//			var myInput = document.getElementById(this.htmlFor);
-//			var desksDiv = document.getElementById("desks");
-//			console.log(myInput.id, "tapped", myInput.checked);
-//		});
-//		desks.appendChild(checkbox);
-//		desks.appendChild(desk);		
-//	}
-//}
 
-//var size = 40;
 var size;
 var tabOverview = document.getElementById("tabOverview");
 var tabLottery = document.getElementById("tabLottery");
@@ -449,6 +426,14 @@ buttonReset.addEventListener("pointerdown", function (ev) {
 	localStorage.setItem("drawn", dataStringDrawn());
 });
 window.addEventListener("resize", resizeHandler);
+window.addEventListener("focus", function () {
+	if (divChoice.firstChild) {
+		var old = divChoice.firstChild;
+		divChoice.removeChild(old);
+		divDrawn.appendChild(old);
+		resizeBall(old);
+	}
+});
 
 labels.forEach(function (l) {
 	var myInput = document.getElementById(l.htmlFor);
