@@ -1,177 +1,9 @@
+<!DOCTYPE html>
 <html>
 	<head>
 		<title>Student Number Lottery</title>
 	</head>
-	<style>
-body {
-	margin: 0px;
-	display: flex;
-	touch-action: none;
-	background: skyblue;
-	font-size: 5vh;
-	height: 100%;
-}
-button {
-	font-size: 3vh;
-}
-#tabs {
-	width: 10%;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-}
-#hub {
-	width: 100%;
-	height: 20%;
-	background: skyblue;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	text-align: center;
-	box-sizing: border-box;
-	border-right: solid;
-}
-.tab {
-	width: 100%;
-	height: 40%;
-	border-top-left-radius: 20px;
-	border-bottom-left-radius: 20px;
-}
-.activeTab {
-	border-right: none;
-}
-.page {
-	border: solid;
-	border-left: none;
-	box-sizing: border-box;
-	padding: 20px;
-}
-.overview {
-	background: gray;
-	display: block;
-}
-#overview {
-	width: 90%;
-	height; 100%;
-	flex-direction: column;
-	justify-content: space-around;
-}
-#count {
-	width: 100%;
-	height: 60%;
-	display: grid;
-	grid-template-columns: repeat(10, 1fr);
-	align-items: center;
-	justify-items: center;
-	gap: 3px;
-	background: darkgray;
-	box-sizing: border-box;
-	padding: 20px;
-}
-label {
-	width: 100%;
-	height: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	user-select: none;
-}
-input {
-	display: none;
-}
-input+label {
-	background: snow;
-}
-input[type="radio"]:checked+label {
-	background: yellow;
-}
-#absent {
-	width: 100%;
-	height: 60%;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-items: center;
-	gap: 3px;
-	background: darkgray;
-	box-sizing: border-box;
-	padding: 20px;
-}
-#desks {
-	width: 100%;
-	display: grid;
-	grid-template-columns: repeat(10, 1fr);
-	align-items: center;
-	justify-items: center;
-	gap: 3px;
-}
-.desk {
-	width: 100%;
-	height: 100%;
-	background: tan;
-}
-input[type="checkbox"]:checked+label {
-	background: red;
-}
-.lottery {
-	background-color: red;
-}
-#lottery {
-	width: 90%;
-	height; 100%;
-	display: none;
-	flex-direction: column;
-	justify-content: space-around;
-}
-#remaining {
-	width: 100%;
-	height: 20%;
-	border: solid black;
-	display: grid;
-	grid-template-columns: repeat(22, 1fr);
-	grid-auto-rows: auto;
-	justify-content: center;
-	align-items: center;
-	box-sizing: border-box;
-	padding: 5px;
-}
-#middle {
-	width: 100%;
-	height: 40%;
-	display: flex;
-}
-#nextButton {
-	height: 100%;
-	width: 25%;
-}
-#choice {
-	height: 100%;
-	width: 50%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-#resetButton {
-	height: 100%;
-	width: 25%;
-}
-#drawn {
-	width: 100%;
-	height: 20%;
-	border: solid black;
-	display: flex;
-	flex-wrap: wrap;
-}
-.ball {
-	background: radial-gradient(circle, yellow, 75%, maroon 90%);
-	border-radius: 50%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	user-select: none;
-}
-	</style>
+	<link rel="stylesheet" href="styles.css" />
 	<!-- Google tag (gtag.js) -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-C5MPB2T6KH"></script>
 	<script>
@@ -182,296 +14,68 @@ input[type="checkbox"]:checked+label {
 		gtag('config', 'G-C5MPB2T6KH');
 	</script>
 	<body>
-<div id="tabs">
-	<a id="hub" href="https://nicknameGrape.github.io/smartboard/">
-		<div>Back to<br>Hub</div>
-	</a>
-	<button id="tabOverview" class="tab overview activeTab">Lottery<br>Setup</button>
-	<button id="tabLottery" class="tab lottery">Lottery</button>
-</div>
-<div id="overview" class="overview page">
-	<div id="count">
-		<div style="grid-column: 1/11;">How many students on the class roster?</div>
-		<input type="radio" name="size" id="r1" value="1"/><label for="r1"></label>
-		<input type="radio" name="size" id="r2" value="2"/><label for="r2"></label>
-		<input type="radio" name="size" id="r3" value="3"/><label for="r3"></label>
-		<input type="radio" name="size" id="r4" value="4"/><label for="r4"></label>
-		<input type="radio" name="size" id="r5" value="5"/><label for="r5"></label>
-		<input type="radio" name="size" id="r6" value="6"/><label for="r6"></label>
-		<input type="radio" name="size" id="r7" value="7"/><label for="r7"></label>
-		<input type="radio" name="size" id="r8" value="8"/><label for="r8"></label>
-		<input type="radio" name="size" id="r9" value="9"/><label for="r9"></label>
-		<input type="radio" name="size" id="r10" value="10"/><label for="r10"></label>
-		<input type="radio" name="size" id="r11" value="11"/><label for="r11"></label>
-		<input type="radio" name="size" id="r12" value="12"/><label for="r12"></label>
-		<input type="radio" name="size" id="r13" value="13"/><label for="r13"></label>
-		<input type="radio" name="size" id="r14" value="14"/><label for="r14"></label>
-		<input type="radio" name="size" id="r15" value="15"/><label for="r15"></label>
-		<input type="radio" name="size" id="r16" value="16"/><label for="r16"></label>
-		<input type="radio" name="size" id="r17" value="17"/><label for="r17"></label>
-		<input type="radio" name="size" id="r18" value="18"/><label for="r18"></label>
-		<input type="radio" name="size" id="r19" value="19"/><label for="r19"></label>
-		<input type="radio" name="size" id="r20" value="20"/><label for="r20"></label>
-		<input type="radio" name="size" id="r21" value="21"/><label for="r21"></label>
-		<input type="radio" name="size" id="r22" value="22"/><label for="r22"></label>
-		<input type="radio" name="size" id="r23" value="23"/><label for="r23"></label>
-		<input type="radio" name="size" id="r24" value="24"/><label for="r24"></label>
-		<input type="radio" name="size" id="r25" value="25"/><label for="r25"></label>
-		<input type="radio" name="size" id="r26" value="26"/><label for="r26"></label>
-		<input type="radio" name="size" id="r27" value="27"/><label for="r27"></label>
-		<input type="radio" name="size" id="r28" value="28"/><label for="r28"></label>
-		<input type="radio" name="size" id="r29" value="29"/><label for="r29"></label>
-		<input type="radio" name="size" id="r30" value="30"/><label for="r30"></label>
-		<input type="radio" name="size" id="r31" value="31"/><label for="r31"></label>
-		<input type="radio" name="size" id="r32" value="32"/><label for="r32"></label>
-		<input type="radio" name="size" id="r33" value="33"/><label for="r33"></label>
-		<input type="radio" name="size" id="r34" value="34"/><label for="r34"></label>
-		<input type="radio" name="size" id="r35" value="35"/><label for="r35"></label>
-		<input type="radio" name="size" id="r36" value="36"/><label for="r36"></label>
-		<input type="radio" name="size" id="r37" value="37"/><label for="r37"></label>
-		<input type="radio" name="size" id="r38" value="38"/><label for="r38"></label>
-		<input type="radio" name="size" id="r39" value="39"/><label for="r39"></label>
-		<input type="radio" name="size" id="r40" value="40"/><label for="r40"></label>
-		<input type="radio" name="size" id="r41" value="41"/><label for="r41"></label>
-		<input type="radio" name="size" id="r42" value="42"/><label for="r42"></label>
-		<input type="radio" name="size" id="r43" value="43"/><label for="r43"></label>
-	</div>
-<!--
-	<div id="absent">
-		<div>Which students are absent?</div>
-		<div id="desks">
+		<div id="tabs">
+			<a id="hub" href="https://nicknameGrape.github.io/smartboard/">
+				<div>Back to<br>Hub</div>
+			</a>
+			<button id="tabCount" class="tab count activeTab">Lottery<br>Setup</button>
+			<button id="tabLottery" class="tab lottery">Lottery</button>
 		</div>
-	</div>
---!>
-</div>
-<div id="lottery" class="lottery page">
-	<div id="remaining"></div>
-	<div id="middle">
-		<button id="nextButton">Next</button>
-		<div id="choice"></div>
-		<button id="resetButton">Reset</button>
-	</div>
-	<div id="drawn"></div>
-</div>
+		<div id="count" class="page">
+			<div style="grid-column: 1/11;">How many students on the class roster?</div>
+			<input type="radio" name="size" id="r1" value="1"/><label for="r1"></label>
+			<input type="radio" name="size" id="r2" value="2"/><label for="r2"></label>
+			<input type="radio" name="size" id="r3" value="3"/><label for="r3"></label>
+			<input type="radio" name="size" id="r4" value="4"/><label for="r4"></label>
+			<input type="radio" name="size" id="r5" value="5"/><label for="r5"></label>
+			<input type="radio" name="size" id="r6" value="6"/><label for="r6"></label>
+			<input type="radio" name="size" id="r7" value="7"/><label for="r7"></label>
+			<input type="radio" name="size" id="r8" value="8"/><label for="r8"></label>
+			<input type="radio" name="size" id="r9" value="9"/><label for="r9"></label>
+			<input type="radio" name="size" id="r10" value="10"/><label for="r10"></label>
+			<input type="radio" name="size" id="r11" value="11"/><label for="r11"></label>
+			<input type="radio" name="size" id="r12" value="12"/><label for="r12"></label>
+			<input type="radio" name="size" id="r13" value="13"/><label for="r13"></label>
+			<input type="radio" name="size" id="r14" value="14"/><label for="r14"></label>
+			<input type="radio" name="size" id="r15" value="15"/><label for="r15"></label>
+			<input type="radio" name="size" id="r16" value="16"/><label for="r16"></label>
+			<input type="radio" name="size" id="r17" value="17"/><label for="r17"></label>
+			<input type="radio" name="size" id="r18" value="18"/><label for="r18"></label>
+			<input type="radio" name="size" id="r19" value="19"/><label for="r19"></label>
+			<input type="radio" name="size" id="r20" value="20"/><label for="r20"></label>
+			<input type="radio" name="size" id="r21" value="21"/><label for="r21"></label>
+			<input type="radio" name="size" id="r22" value="22"/><label for="r22"></label>
+			<input type="radio" name="size" id="r23" value="23"/><label for="r23"></label>
+			<input type="radio" name="size" id="r24" value="24"/><label for="r24"></label>
+			<input type="radio" name="size" id="r25" value="25"/><label for="r25"></label>
+			<input type="radio" name="size" id="r26" value="26"/><label for="r26"></label>
+			<input type="radio" name="size" id="r27" value="27"/><label for="r27"></label>
+			<input type="radio" name="size" id="r28" value="28"/><label for="r28"></label>
+			<input type="radio" name="size" id="r29" value="29"/><label for="r29"></label>
+			<input type="radio" name="size" id="r30" value="30"/><label for="r30"></label>
+			<input type="radio" name="size" id="r31" value="31"/><label for="r31"></label>
+			<input type="radio" name="size" id="r32" value="32"/><label for="r32"></label>
+			<input type="radio" name="size" id="r33" value="33"/><label for="r33"></label>
+			<input type="radio" name="size" id="r34" value="34"/><label for="r34"></label>
+			<input type="radio" name="size" id="r35" value="35"/><label for="r35"></label>
+			<input type="radio" name="size" id="r36" value="36"/><label for="r36"></label>
+			<input type="radio" name="size" id="r37" value="37"/><label for="r37"></label>
+			<input type="radio" name="size" id="r38" value="38"/><label for="r38"></label>
+			<input type="radio" name="size" id="r39" value="39"/><label for="r39"></label>
+			<input type="radio" name="size" id="r40" value="40"/><label for="r40"></label>
+			<input type="radio" name="size" id="r41" value="41"/><label for="r41"></label>
+			<input type="radio" name="size" id="r42" value="42"/><label for="r42"></label>
+			<input type="radio" name="size" id="r43" value="43"/><label for="r43"></label>
+		</div>
+		<div id="lottery" class="lottery page">
+			<div id="remaining"></div>
+			<div id="middle">
+				<button id="nextButton">Next</button>
+				<div id="choice"></div>
+				<button id="resetButton">Reset</button>
+			</div>
+			<div id="drawn"></div>
+		</div>
 	</body>
-	<script>
-function resizeBall(b) {
-	if (b.parentElement.id === "choice") {
-		var bigSize = Math.min(divChoice.clientWidth, divChoice.clientHeight);
-		b.style.width = bigSize*.9;
-		b.style.height = bigSize*.9;
-		b.style.fontSize = bigSize*.5;
-	} else {
-		var smallSize = ballSize(optimumRows())*.8
-		b.style.width = smallSize;
-		b.style.height = smallSize;
-		b.style.fontSize = smallSize*.5;
-	}
-}
-
-function optimumRows() {
-	var rows = 1;
-	var bestSize = ballSize(rows);
-	while (ballSize(rows+1) > bestSize) {
-		rows += 1;
-		bestSize = ballSize(rows);
-	}
-	return rows;
-}
-
-function ballSize(rows) {
-	var columns = Math.ceil(size/rows);
-	var ballSize = Math.min((divRemaining.clientHeight - 10)/rows, (divRemaining.clientWidth - 10)/columns);
-	return ballSize;
-}
-
-function resizeHandler(ev) {
-	var balls = document.getElementsByClassName("ball")
-	var columns = Math.ceil(size/optimumRows());
-	divRemaining.style.gridTemplateColumns = "repeat(" + columns + ", 1fr)";
-	Array.from(balls).forEach(function (b) {
-		resizeBall(b);
-		b.style.gridRow = Math.floor((b.innerHTML-1)/columns)+1;
-		b.style.gridColumn = (b.innerHTML-1)%columns+1
-	});
-}
-
-function ballPointerdownHandler(ev) {
-	if (this.parentElement.id === "remaining") { //if ball is in remaining
-		if (divChoice.firstChild !== null) {
-			var old = divChoice.firstChild;
-			divChoice.removeChild(old);
-			divDrawn.appendChild(old);
-			resizeBall(old);
-		}
-		divRemaining.removeChild(this);
-		choice.appendChild(this);
-		resizeBall(this);
-		localStorage.setItem("drawn", dataStringDrawn());
-		return;
-	} else if (this.parentElement.id === "choice") {
-			divChoice.removeChild(this);
-			divRemaining.appendChild(this);
-			resizeBall(this);
-			localStorage.setItem("drawn", dataStringDrawn());
-		return;
-	} else if (this.parentElement.id === "drawn") {
-			divDrawn.removeChild(this);
-			divRemaining.appendChild(this);
-			resizeBall(this);
-			localStorage.setItem("drawn", dataStringDrawn());
-		return;
-	}
-}
-
-function makeBalls() {
-	for (var i=1; i<=size; i++) {
-		var ball = document.createElement("span");
-		ball.innerHTML = i;
-		ball.classList.add("ball");
-		divRemaining.appendChild(ball);
-		ball.addEventListener("pointerdown", ballPointerdownHandler);
-	}
-	localStorage.setItem("drawn", dataStringDrawn());
-}
-
-function restoreBalls() {
-	var numbers = localStorage.getItem("drawn").split(",");
-	if (numbers[0] === "") {
-		numbers = [];
-	} else {
-		numbers = numbers.map(function (str) {return parseInt(str);});
-	}
-	console.log("Restoring", numbers);
-	for (var j=0; j<numbers.length; j++) {
-		var ball = document.createElement("span");
-		ball.innerHTML = numbers[j];
-		ball.classList.add("ball");
-		ball.addEventListener("pointerdown", ballPointerdownHandler);
-		divDrawn.appendChild(ball);
-	}
-	for (var i=1; i<=size; i++) {
-		var ball = document.createElement("span");
-		ball.innerHTML = i;
-		ball.classList.add("ball");
-		ball.addEventListener("pointerdown", ballPointerdownHandler);
-		if (!numbers.includes(i)) {
-			divRemaining.appendChild(ball);
-		} else {
-			console.log("Skipping", i);
-		}
-	};
-}
-
-function dataStringDrawn() {
-	var balls = Array.from(divDrawn.children).concat(Array.from(divChoice.children));
-	var dataString = balls.reduce(function (ds, b) {
-		return ds + "," + b.innerHTML;
-	}, "").slice(1);
-	console.log("localStorage set to", dataString);
-	return dataString;
-}
-
-var size;
-var tabOverview = document.getElementById("tabOverview");
-var tabLottery = document.getElementById("tabLottery");
-var divOverview = document.getElementById("overview");
-var divLottery = document.getElementById("lottery");
-var divRemaining = document.getElementById("remaining");
-var divChoice = document.getElementById("choice");
-var divDrawn = document.getElementById("drawn");
-var buttonNext = document.getElementById("nextButton");
-var buttonReset = document.getElementById("resetButton");
-var labels = Array.from(document.getElementsByTagName("label"));
-
-//event listeners
-tabOverview.addEventListener("pointerdown", function (ev) {
-	tabOverview.classList.add("activeTab");
-	tabLottery.classList.remove("activeTab");
-	divOverview.style.display = "flex";
-	divLottery.style.display = "none";
-	
-});
-tabLottery.addEventListener("pointerdown", function (ev) {
-	tabLottery.classList.add("activeTab");
-	tabOverview.classList.remove("activeTab");
-	divOverview.style.display = "none";
-	divLottery.style.display = "flex";
-	resizeHandler();
-});
-buttonNext.addEventListener("pointerdown", function (ev) {
-	if (divRemaining.firstChild) {
-		var choices = Array.from(divRemaining.children);
-		var rInt = Math.floor(Math.random()*choices.length);
-		var rBall = choices[rInt];
-		if (divChoice.firstChild) {
-			var old = divChoice.firstChild;
-			divChoice.removeChild(old);
-			divDrawn.appendChild(old);
-			resizeBall(old);
-		}
-		divRemaining.removeChild(rBall);
-		divChoice.appendChild(rBall);
-		resizeBall(rBall);
-	}
-	localStorage.setItem("drawn", dataStringDrawn());
-});
-buttonReset.addEventListener("pointerdown", function (ev) {
-	var balls = document.getElementsByClassName("ball");
-	Array.from(balls).forEach(function (b) {
-		b.parentElement.removeChild(b);
-		divRemaining.appendChild(b);
-		resizeBall(b);
-	});
-	localStorage.setItem("drawn", dataStringDrawn());
-});
-window.addEventListener("resize", resizeHandler);
-window.addEventListener("focus", function () {
-	if (divChoice.firstChild) {
-		var old = divChoice.firstChild;
-		divChoice.removeChild(old);
-		divDrawn.appendChild(old);
-		resizeBall(old);
-	}
-});
-
-labels.forEach(function (l) {
-	var myInput = document.getElementById(l.htmlFor);
-	l.innerHTML = myInput.value;
-	l.addEventListener("pointerdown", function (ev) {
-		var myInput = document.getElementById(this.htmlFor);
-		//var desksDiv = document.getElementById("desks");
-		size = parseInt(myInput.value);
-		localStorage.setItem("size", size);
-		localStorage.setItem("drawn", "");
-		console.log(size, "students on the roster");
-		//remove old balls
-		var balls = document.getElementsByClassName("ball");
-		Array.from(balls).forEach(function (b) {
-			b.parentElement.removeChild(b);
-		});
-		makeBalls();
-		resizeHandler();
-		//makeDesks();
-	});
-});
-
-//makeDesks();
-if (!localStorage.getItem("size")) {
-	size = 40;
-	makeBalls();
-	localStorage.setItem("drawn", dataStringDrawn());
-} else {
-	size = localStorage.getItem("size");
-	var sizeButton = document.getElementById("r"+size);
-	sizeButton.checked = true;
-	tabOverview.classList.remove("activeTab");
-	tabLottery.classList.add("activeTab");
-	divOverview.style.display = "none";
-	divLottery.style.display = "flex";
-	restoreBalls();
-}
-resizeHandler();
-
-	</script>
+	<script src="main.js"></script>
 </html>

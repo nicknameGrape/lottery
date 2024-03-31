@@ -1,0 +1,144 @@
+body {
+	margin: 0px;
+	display: grid;
+	grid-template-columns: 10vw 90vw;
+	grid-template-rows: 100vh;
+	touch-action: none;
+	background: skyblue;
+	/*font-size: 5vh;*/
+	height: 100vh;
+}
+button {
+	/*font-size: 3vh;*/
+}
+#tabs {
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+}
+#hub {
+	width: 100%;
+	aspect-ratio: 1/1;
+	background: skyblue;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	box-sizing: border-box;
+	border-right: solid;
+	font-size: 4vh;
+}
+.tab {
+	width: 100%;
+	aspect-ratio: 1/1;
+	border-top-left-radius: 20px;
+	border-bottom-left-radius: 20px;
+	font-size: 3vh;
+}
+.activeTab {
+	border-right: none;
+}
+.page {
+	border: solid;
+	border-left: none;
+	box-sizing: border-box;
+	padding: 20px;
+}
+#tabCount {
+	background: darkgray;
+}
+#count {
+	display: grid;
+	grid-template-columns: repeat(10, 1fr);
+	align-items: center;
+	justify-items: center;
+	gap: 3px;
+	background: darkgray;
+	box-sizing: border-box;
+	padding: 20px;
+}
+label {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	user-select: none;
+}
+input {
+	display: none;
+}
+input+label {
+	background: snow;
+}
+input[type="radio"]:checked+label {
+	background: yellow;
+}
+input[type="checkbox"]:checked+label {
+	background: red;
+}
+.lottery {
+	background-color: red;
+}
+#lottery {
+	display: none;
+	grid-template-rows: 1fr 3fr 1fr;
+}
+#remaining {
+	display: grid;
+	grid-template-columns: repeat(20, 1fr);
+	gap: 5px;
+	border: solid black;
+	box-sizing: border-box;
+	padding: 5px;
+}
+#middle {
+	display: grid;
+	grid-template-columns: 1fr 2fr 1fr;
+	box-sizing: border-box;
+	padding: 10px;
+}
+#nextButton {
+	font-size: 5vh;
+}
+#choice {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+#resetButton {
+	font-size: 5vh;
+}
+#drawn {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-content: start;
+	gap: 5px;
+	border: solid black;
+	box-sizing: border-box;
+	padding: 5px;
+}
+.ball {
+	aspect-ratio: 1/1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: radial-gradient(circle, yellow, 75%, maroon 90%);
+	border-radius: 50%;
+	/*font-size: 1vh;*/
+	user-select: none;
+}
+#remaining .ball {
+	font-size: 3vh;
+}
+#choice .ball {
+	height: 80%;
+	font-size: 25vh;
+}
+#drawn .ball {
+	width: 4%;
+	aspect-ratio: 1/1;
+	font-size: 3vh;
+	color: gray;
+}
