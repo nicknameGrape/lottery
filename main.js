@@ -200,11 +200,19 @@ buttonReset.addEventListener("click", function (ev) {
 	localStorage.setItem("drawn", dataStringDrawn());
 });
 //window.addEventListener("resize", resizeHandler);
-window.addEventListener("focus", function () {
+//window.addEventListener("focus", function () {
+//	if (divChoice.firstChild) {
+//		var old = divChoice.firstChild;
+//		divChoice.removeChild(old);
+//		divDrawn.appendChild(old);
+//	}
+//});
+window.addEventListener("visibilitychange", function () {
 	if (divChoice.firstChild) {
 		var old = divChoice.firstChild;
 		divChoice.removeChild(old);
 		divDrawn.appendChild(old);
+		localStorage.setItem("drawn", dataStringDrawn());
 	}
 });
 
