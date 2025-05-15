@@ -188,7 +188,8 @@ tabLottery.addEventListener("pointerdown", function (ev) {
 	tabLottery.classList.add("activeTab");
 	tabCount.classList.remove("activeTab");
 	divCount.style.display = "none";
-	divLottery.style.display = "grid";
+	//divLottery.style.display = "grid";
+	divLottery.style.display = "flex";
 });
 buttonNext.addEventListener("click", buttonNextPointerdownHandler);
 buttonReset.addEventListener("click", function (ev) {
@@ -247,7 +248,7 @@ if (!localStorage.getItem("size")) {
 	tabCount.classList.remove("activeTab");
 	tabLottery.classList.add("activeTab");
 	divCount.style.display = "none";
-	divLottery.style.display = "grid";
+	divLottery.style.display = "flex";
 	restoreBalls();
 }
 

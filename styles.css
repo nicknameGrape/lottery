@@ -6,7 +6,7 @@ body {
 	touch-action: none;
 	background: skyblue;
 	/*font-size: 5vh;*/
-	height: 100vh;
+	/*height: 100vh;*/
 }
 button {
 	/*font-size: 3vh;*/
@@ -82,21 +82,28 @@ input[type="checkbox"]:checked+label {
 }
 #lottery {
 	display: none;
-	grid-template-rows: 1fr 3fr 1fr;
+	flex-direction: column;
+	justify-content: space-around;
+	gap: 10px;
+	/*grid-template-rows: 1fr 3fr 1fr;*/
 }
 #remaining {
 	display: grid;
-	grid-template-columns: repeat(20, 1fr);
-	gap: 5px;
+	grid-template-columns: repeat(20, 4%);
+	gap: 5px 1%;
 	border: solid black;
 	box-sizing: border-box;
 	padding: 5px;
+	width: 100%;
+	aspect-ratio: 20/2.2;
 }
 #middle {
 	display: grid;
-	grid-template-columns: 1fr 2fr 1fr;
+	grid-template-columns: 25% 50% 25%;
+	grid-template-rows: 100%;
 	box-sizing: border-box;
 	padding: 10px;
+	height: 50vh;
 }
 #nextButton {
 	font-size: 5vh;
@@ -118,6 +125,8 @@ input[type="checkbox"]:checked+label {
 	border: solid black;
 	box-sizing: border-box;
 	padding: 5px;
+	width: 100%;
+	aspect-ratio: 20/2.2;
 }
 .ball {
 	aspect-ratio: 1/1;
@@ -133,7 +142,8 @@ input[type="checkbox"]:checked+label {
 	font-size: 3vh;
 }
 #choice .ball {
-	height: 80%;
+	height: 100%;
+	aspect-ratio: 1/1;
 	font-size: 25vh;
 }
 #drawn .ball {
