@@ -221,8 +221,13 @@ window.addEventListener("visibilitychange", function () {
 		localStorage.setItem("drawn", dataStringDrawn());
 	}
 });
+//open drop zones
 divRemaining.addEventListener("dragover", function (ev) {ev.preventDefault();});
 divRemaining.addEventListener("drop", function (ev) {ev.preventDefault(); ev.target.appendChild(dragged);});
+divChoice.addEventListener("dragover", function (ev) {ev.preventDefault();});
+divChoice.addEventListener("drop", function (ev) {ev.preventDefault(); ev.target.appendChild(dragged);});
+divDrawn.addEventListener("dragover", function (ev) {ev.preventDefault();});
+divDrawn.addEventListener("drop", function (ev) {ev.preventDefault(); ev.target.appendChild(dragged);});
 
 labels.forEach(function (l) {
 	var myInput = document.getElementById(l.htmlFor);
