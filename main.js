@@ -54,6 +54,7 @@ function makeBalls() {
 		ball.classList.add("ball");
 		divRemaining.appendChild(ball);
 		ball.addEventListener("click", ballPointerdownHandler);
+		ball.addEventListener("dragstart", function (ev) {dragged = ev.target;});
 		let c = (i-1)%20+1;
 		let r = Math.ceil(i/20);
 		ball.style.gridArea = r + "/" + c + "/" + (r+1) + "/" + (c+1);
@@ -78,6 +79,7 @@ function restoreBalls() {
 		ball.classList.add("ball");
 		ball.style.gridArea = r + "/" + c + "/" + (r+1) + "/" + (c+1);
 		ball.addEventListener("click", ballPointerdownHandler);
+		ball.addEventListener("dragstart", function (ev) {dragged = ev.target;});
 		if (!numbers.includes(i)) {
 			divRemaining.appendChild(ball);
 		} else {
@@ -175,6 +177,7 @@ var buttonNext = document.getElementById("nextButton");
 var buttonReset = document.getElementById("resetButton");
 var labels = Array.from(document.getElementsByTagName("label"));
 let animateStartTime = null, newBall = null, oldBall = null;
+let dragged = null;
 
 //event listeners
 tabCount.addEventListener("pointerdown", function (ev) {
@@ -216,6 +219,8 @@ window.addEventListener("visibilitychange", function () {
 		localStorage.setItem("drawn", dataStringDrawn());
 	}
 });
+divRemaining.addEventListener("dragover", function (ev) {ev.preventDefault();});
+dviRemaining.addEventListener("drop", function (ev) {ev.preventDefault(); ev.target.appendChild(dragged);});
 
 labels.forEach(function (l) {
 	var myInput = document.getElementById(l.htmlFor);
