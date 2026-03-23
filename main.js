@@ -220,7 +220,7 @@ window.addEventListener("visibilitychange", function () {
 	}
 });
 divRemaining.addEventListener("dragover", function (ev) {ev.preventDefault();});
-dviRemaining.addEventListener("drop", function (ev) {ev.preventDefault(); ev.target.appendChild(dragged);});
+divRemaining.addEventListener("drop", function (ev) {ev.preventDefault(); ev.target.appendChild(dragged);});
 
 labels.forEach(function (l) {
 	var myInput = document.getElementById(l.htmlFor);
