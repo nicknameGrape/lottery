@@ -54,6 +54,7 @@ function makeBalls() {
 		ball.classList.add("ball");
 		divRemaining.appendChild(ball);
 		ball.addEventListener("click", ballPointerdownHandler);
+		ball.draggable = true;
 		ball.addEventListener("dragstart", function (ev) {dragged = ev.target;});
 		let c = (i-1)%20+1;
 		let r = Math.ceil(i/20);
@@ -79,6 +80,7 @@ function restoreBalls() {
 		ball.classList.add("ball");
 		ball.style.gridArea = r + "/" + c + "/" + (r+1) + "/" + (c+1);
 		ball.addEventListener("click", ballPointerdownHandler);
+		ball.draggable = true;
 		ball.addEventListener("dragstart", function (ev) {dragged = ev.target;});
 		if (!numbers.includes(i)) {
 			divRemaining.appendChild(ball);
